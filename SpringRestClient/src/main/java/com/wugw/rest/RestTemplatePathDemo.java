@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * 测试path请求
+ * 测试通过urlpath进行传递参数的请求
  */
 @RestController
 public class RestTemplatePathDemo {

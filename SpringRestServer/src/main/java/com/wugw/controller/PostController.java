@@ -2,6 +2,7 @@ package com.wugw.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,7 +46,7 @@ public class PostController {
      * @param ids
      * @return
      */
-    @RequestMapping(value = "/bookInfo", method = {RequestMethod.POST})
+    @RequestMapping(value = "/bookInfo", method = {RequestMethod.POST}, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<ObjectNode> getBookInfo(@RequestParam("ids") List<String> ids) {
         ObjectMapper mapper = new ObjectMapper();
 
