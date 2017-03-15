@@ -1,0 +1,261 @@
+{
+	"variables": [],
+	"info": {
+		"name": "RestTest",
+		"_postman_id": "1e10fae2-027d-c7eb-fb55-33afe20f9088",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get",
+			"description": "",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8005/user?id=wugw",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Body matches string\"] = responseBody.has(\"got >>> wugw\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://127.0.0.1:8005/user?id=wugw",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8005/users?ids=wugw,zhangsan,lisi,dddd",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Body matches string1\"] = responseBody.has(\"got >>> wugw\");",
+									"",
+									"tests[\"Body matches strin2g\"] = responseBody.has(\"got >>> zhangsan\");",
+									"",
+									"tests[\"Body matches string3\"] = responseBody.has(\"got >>> lisi\");",
+									"",
+									"tests[\"Body matches string4\"] = responseBody.has(\"got >>> dddd\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://127.0.0.1:8005/users?ids=wugw,zhangsan,lisi,dddd",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "path",
+			"description": "",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8005/test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Body is correct\"] = responseBody === \"Hello world!\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://127.0.0.1:8005/test",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8005/path/zhangsan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Body is correct\"] = responseBody === \"Hello zhangsan\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://127.0.0.1:8005/path/zhangsan",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8005/path/zhangsan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Body is correct\"] = responseBody === \"Hello zhangsan\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://127.0.0.1:8005/path/zhangsan",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"description": "",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8005/books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Body matches string\"] = responseBody.has(\"book >>> sanguoyanyi\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://127.0.0.1:8005/books",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ids",
+									"value": "sanguoyanyi,xiyouji",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8005/book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Body matches string\"] = responseBody.has(\"book >>> sanguoyanyi\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://127.0.0.1:8005/book",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "sanguoyanyi",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8005/bookInfo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Your test name\"] = jsonData[0].id === \"sanguoyanyi\";",
+									"tests[\"Your test name\"] = jsonData[0].book === \"<<sanguoyanyi>>\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://127.0.0.1:8005/bookInfo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ids",
+									"value": "sanguoyanyi,xiyouji",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
