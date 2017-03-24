@@ -2,6 +2,7 @@ package com.wugw.rest;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.client.HttpComponentsAsyncClientHttpRequestFactory;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,10 @@ import java.util.stream.Collectors;
 @RestController
 public class RestTemplateWithPost {
     private RestTemplate restTemplate = new RestTemplate();
+
+    public RestTemplateWithPost() {
+        restTemplate.setRequestFactory(new HttpComponentsAsyncClientHttpRequestFactory());
+    }
 
     @RequestMapping("/test/post")
     public void test() {
