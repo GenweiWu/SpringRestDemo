@@ -33,3 +33,4 @@ RestTemplate restTemplate = new RestTemplate();
 restTemplate.setRequestFactory(new HttpComponentsAsyncClientHttpRequestFactory());
 ```
 
+> 集成travis-ci
