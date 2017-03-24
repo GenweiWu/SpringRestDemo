@@ -2,11 +2,9 @@ package com.wugw.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.wugw.Message;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,5 +57,12 @@ public class PostController {
             bookInfo.add(node);
         });
         return bookInfo;
+    }
+
+    @RequestMapping(value = "/message", method = {RequestMethod.POST}, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public boolean getMessage(@RequestBody Message message) {
+        System.out.println(message);
+
+        return true;
     }
 }

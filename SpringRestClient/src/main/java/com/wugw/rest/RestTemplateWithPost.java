@@ -1,6 +1,7 @@
 package com.wugw.rest;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.wugw.Message;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.client.HttpComponentsAsyncClientHttpRequestFactory;
 import org.springframework.util.LinkedMultiValueMap;
@@ -29,6 +30,22 @@ public class RestTemplateWithPost {
         passStringParam();
         passListStringParam();
         passListObjectParam();
+        passCustomerObject();
+    }
+
+    /**
+     * 测试传递自定义类
+     */
+    private void passCustomerObject() {
+        /**
+         * 1、序列化
+         * 2、默认构造函数
+         */
+        Message message = new Message(8, "you win!");
+
+        String url = "http://127.0.0.1:8005/message";
+        boolean result = restTemplate.postForObject(url, message, Boolean.class);
+        System.out.println(result);
     }
 
     private void passStringParam() {

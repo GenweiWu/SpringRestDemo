@@ -254,6 +254,37 @@
 						"description": ""
 					},
 					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8005/message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Body is correct\"] = responseBody === \"true\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://127.0.0.1:8005/message",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"no\":8,\"detail\":\"you win!\"}"
+						},
+						"description": ""
+					},
+					"response": []
 				}
 			]
 		}
