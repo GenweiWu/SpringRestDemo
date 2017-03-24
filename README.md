@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web)
 # SpringRestDemo
 使用Spring的rest能力，达成后台rest请求
 
@@ -32,5 +33,3 @@ and configure RestTemplate with :
 RestTemplate restTemplate = new RestTemplate();
 restTemplate.setRequestFactory(new HttpComponentsAsyncClientHttpRequestFactory());
 ```
-
-> 集成travis-ci
