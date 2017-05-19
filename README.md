@@ -12,7 +12,18 @@
 produces = MediaType.APPLICATION_JSON_UTF8_VALUE
 ```
 
-#### 4. 打印请求内容，便于问题定位
+#### 4. 设置请求头的方法
+```java
+MultiValueMap<String, Object> dataMap = new LinkedMultiValueMap<>();
+        dataMap.add("paramData", paramStr);
+
+        MultiValueMap<String, String> header = new LinkedMultiValueMap<>();
+        header.add("Content-type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=utf-8");
+
+        HttpEntity<Object> httpEntity = new HttpEntity<>(dataMap, header);
+```
+
+#### 5. 打印请求内容，便于问题定位
 > according to [this solution](http://stackoverflow.com/a/41983744/6182927)
 
 The solution given by xenoterracide to use
