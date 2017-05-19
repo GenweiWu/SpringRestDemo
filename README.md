@@ -14,7 +14,7 @@ produces = MediaType.APPLICATION_JSON_UTF8_VALUE
 
 #### 4. 设置请求头的方法
 ```java
-MultiValueMap<String, Object> dataMap = new LinkedMultiValueMap<>();
+        MultiValueMap<String, Object> dataMap = new LinkedMultiValueMap<>();
         dataMap.add("paramData", paramStr);
 
         MultiValueMap<String, String> header = new LinkedMultiValueMap<>();
