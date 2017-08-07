@@ -44,3 +44,31 @@ and configure RestTemplate with :
 RestTemplate restTemplate = new RestTemplate();
 restTemplate.setRequestFactory(new HttpComponentsAsyncClientHttpRequestFactory());
 ```
+
+#### 5. restTemplate with ssl
+使用restTemplate去后台请求一个 `https://xxx`的接口,需要设置下请求下restClient来支持下。
+> example is **trust all certificates**
+
+```java
+SSLContextBuilder builder = new SSLContextBuilder();
+builder.loadTrustMaterial(null, new TrustStrategy(){
+    public boolean isTrusted(X509Certificate[] chain, String authType)
+        throws CertificateException {
+        return true;
+    }
+});
+    SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(
+            builder.build());
+    CloseableHttpClient httpclient = HttpClients.custom().setSSLSocketFactory(
+            sslsf).build();
+ HttpComponentsClientHttpRequestFactory requestFactory 
+      = new HttpComponentsClientHttpRequestFactory();
+    requestFactory.setHttpClient(httpClient);
+```
+
+参考:  
+http://www.baeldung.com/httpclient-ssl  
+https://stackoverflow.com/questions/19517538/ignoring-ssl-certificate-in-apache-httpclient-4-3  
+
+
+
