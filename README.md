@@ -45,7 +45,7 @@ RestTemplate restTemplate = new RestTemplate();
 restTemplate.setRequestFactory(new HttpComponentsAsyncClientHttpRequestFactory());
 ```
 
-#### 5. restTemplate with ssl
+#### 6. restTemplate with ssl
 使用restTemplate去后台请求一个 `https://xxx`的接口,需要设置下请求下restClient来支持下。
 > example is **trust all certificates**
 
